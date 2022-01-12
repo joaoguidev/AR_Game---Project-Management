@@ -8,6 +8,7 @@
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     </head>
 
     <body style="margin: 0; overflow: hidden">
@@ -23,7 +24,8 @@
                 <a-asset-item id="castle" src="./assets/castle/scene.gltf"></a-asset-item>
                 <a-asset-item id="diceCenter" src="./assets/diceCenter/scene.gltf"></a-asset-item>
                 <a-asset-item id="dice" src="./assets/dice/scene.gltf"></a-asset-item>
-            </a-assets>
+                <a-asset-item id="monster" src="./assets/orb/scene.gltf"></a-asset-item>
+            </a-assets>1
 
             <a-entity gltf-model="#castle" 
                 position="0 -60 -70"
@@ -86,6 +88,21 @@
                         <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Players and Genre" look-at="#camera"></a-text>
                     </a-entity >
                 </a-entity>
+
+
+
+            <a-entity 
+
+				gltf-model="#monster" 
+				scale="0.5 0.5 0.5" 
+				position="0 -10 400"
+                rotation= "0 180 0"
+				animation-mixer="clip: Take 001">
+              
+			</a-entity>
+            <a-entity light="type: spot; angle: 90; intensity: 5" rotation= "0 180 0" target="#monster" ></a-entity>
+
+
                 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 120 0; to: 0 480 0; loop: true; dur: 50000; easing: linear"> 
                     <a-entity gltf-model="#dice" scale="40 40 40"  id="lens3" roughness="0.3" link="href: ./pages/lens3.html" color="#e74c3c" position="0 0 20" 
