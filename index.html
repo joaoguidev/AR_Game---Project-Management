@@ -12,15 +12,17 @@
 
     <body style="margin: 0; overflow: hidden">
         <a-scene
-        renderer="logarithmicDepthBuffer: true;"
+        renderer="logarithmicDepthBuffer: true"
+        renderer="gammaOutput: true"
         vr-mode-ui="enabled: false"
         embedded
         isMobile = "true"
-        arjs=" debugUIEnabled: false;"
+        arjs=" debugUIEnabled: false"
         >
             <a-assets>
                 <a-asset-item id="castle" src="./assets/castle/scene.gltf"></a-asset-item>
-                
+                <a-asset-item id="diceCenter" src="./assets/diceCenter/scene.gltf"></a-asset-item>
+                <a-asset-item id="dice" src="./assets/dice/scene.gltf"></a-asset-item>
             </a-assets>
 
             <a-entity gltf-model="#castle" 
@@ -44,15 +46,16 @@
 
                 <a-entity class="orbit" animation="property: rotation; from: 0 40 0; to: 0 400 0; loop: true; dur: 50000; easing: linear"> 
                             
-                    <a-sphere id="lens1" shadow="receive: true" roughness="0.3" link="href: ./pages/lens1.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens1" shadow="receive: true" roughness="0.3" link="href: ./pages/lens1.html" color="#e74c3c" position="0 0 20" 
                         event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                         event-set__leave="_event: mouseleave; material.color: #e74c3c"
                         >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="High concept" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="High Concept" look-at="#camera"  "></a-text>
+                    </a-entity >
                     <a-entity 
-
-                        geometry="primitive: sphere; radius: 1.5"
+                        gltf-model="#diceCenter" 
+                        scale="1 1 1"
+                        
                         material="color: #FFF; shader: flat"
                         light="color: #DDDDFF; distance: 220; intensity: 2; castShadow: true; type: point" 
                         position="0 0 0" >
@@ -77,67 +80,67 @@
                 </a-entity>
 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 80 0; to: 0 440 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens2" roughness="0.3" link="href: ./pages/lens2.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens2" roughness="0.3" link="href: ./pages/lens2.html" color="#e74c3c" position="0 0 20"
                         event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                         event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Players and Genre" look-at="#camera"></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Players and Genre" look-at="#camera"></a-text>
+                    </a-entity >
                 </a-entity>
                 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 120 0; to: 0 480 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens3" roughness="0.3" link="href: ./pages/lens3.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens3" roughness="0.3" link="href: ./pages/lens3.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Game Experience" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Game Experience" look-at="#camera"  ></a-text>
+                    </a-entity >
                 </a-entity>
                 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 160 0; to: 0 520 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens4" roughness="0.3" link="href: ./pages/lens4.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens4" roughness="0.3" link="href: ./pages/lens4.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Mechanics" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Mechanics" look-at="#camera"  ></a-text>
+                    </a-entity >
                 </a-entity>
             
                 <a-entity class="orbit"  shadow="receive: true" animation="property: rotation; from: 0 200 0; to: 0 560 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens5" roughness="0.3" link="href: ./pages/lens5.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens5" roughness="0.3" link="href: ./pages/lens5.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Game Loop" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Game Loop" look-at="#camera"  ></a-text>
+                    </a-entity >
                 </a-entity>
 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 240 0; to: 0 600 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens6" roughness="0.3" link="href: ./pages/lens6.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens6" roughness="0.3" link="href: ./pages/lens6.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Platform" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Platform" look-at="#camera"  ></a-text>
+                    </a-entity >
                 </a-entity>
 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 280 0; to: 0 640 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens7" roughness="0.3" link="href: ./pages/lens7.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens7" roughness="0.3" link="href: ./pages/lens7.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Story" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Story" look-at="#camera"></a-text>
+                    </a-entity >
                 </a-entity>
 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 320 0; to: 0 680 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens8" roughness="0.3" link="href: ./pages/lens8.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens8" roughness="0.3" link="href: ./pages/lens8.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Aesthetics" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Aesthetics" look-at="#camera"  ></a-text>
+                    </a-entity >
                 </a-entity>
 
                 <a-entity class="orbit" shadow="receive: true"  animation="property: rotation; from: 0 360 0; to: 0 720 0; loop: true; dur: 50000; easing: linear"> 
-                    <a-sphere  id="lens9" roughness="0.3" link="href: ./pages/lens9.html" color="#e74c3c" position="0 0 20" radius="1" 
+                    <a-entity gltf-model="#dice" scale="40 40 40"  id="lens9" roughness="0.3" link="href: ./pages/lens9.html" color="#e74c3c" position="0 0 20" 
                     event-set__enter="_event: mouseenter; material.color: #2ecc71 "
                     event-set__leave="_event: mouseleave; material.color: #e74c3c" >
-                        <a-text  position="0 1.3 0" scale="2 2"  align="center" value="Technology" look-at="#camera"  "></a-text>
-                    </a-sphere >
+                        <a-text  position="0 0.05 0" scale="0.09 0.09"  align="center" value="Technology" look-at="#camera"  ></a-text>
+                    </a-entity >
                 </a-entity>
 
 
